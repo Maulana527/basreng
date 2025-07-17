@@ -12,7 +12,7 @@
   text-decoration: none;
 }
 
-hmtl {
+html {
   scroll-behavior: smooth;
 }
 
@@ -85,6 +85,92 @@ body {
   display: none;
 }
 
+/* navbar search form */
+
+.navbar .search-form {
+  position: absolute;
+  top: 100%;
+  right: 7%;
+  background-color: #fff;
+  width: 50rem;
+  height: 5rem;
+  display: flex;
+  align-items: center;
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: 0.3s;
+}
+
+.navbar .search-form.active {
+  transform: scaleY(1);
+}
+.navbar .search-form input {
+  height: 100%;
+  width: 100%;
+  font-size: 1.6rem;
+  color: var(--bg);
+  padding: 1rem;
+}
+
+.navbar .search-form label {
+  cursor: pointer;
+  font-size: 2rem;
+  margin-right: 1.5rem;
+  color: var(--bg);
+}
+
+/* shoppiing cart */
+.shopping-cart {
+  position: absolute;
+  top: 100%;
+  right: -100%;
+  height: 100vh;
+  width: 35rem;
+  padding: 0 1.5rem;
+  background-color: #fff;
+  color: var(--utama);
+  transition: 0.4s;
+}
+
+.shopping-cart.active {
+  right: 0;
+}
+
+.shopping-cart .cart-item {
+  margin: 2rem 0;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px dashed #444;
+  position: relative;
+}
+
+.shopping-cart  h3 {
+  font-size: 1.7rem;
+  padding-bottom: 0.5rem;
+}
+
+.shopping-cart .item-harga {
+  font-size: 1.3rem;
+
+}
+
+.shopping-cart .remove-item {
+  position: absolute;
+  right: 1rem;
+  cursor: pointer;
+}
+
+.shopping-cart .remove-item:hover {
+  color: var(--utama);
+
+}
+.shopping-cart img {
+  height: 8rem;
+  border-radius: 50%;
+}
+
 /* Hero Section */
 .hero {
   min-height: 100vh;
@@ -155,12 +241,14 @@ body {
 
 .about,
 .menu,
+.beli,
 .contact {
   padding: 7rem 7% 1.4rem;
 }
 
 .about h2,
 .menu h2,
+.beli h2,
 .contact h2 {
   text-align: center;
   font-size: 2.5rem;
@@ -169,6 +257,7 @@ body {
 
 .about h2 span,
 .menu h2 span,
+.beli h2 span,
 .contact h2 span {
   color: #535353;
 }
@@ -236,6 +325,75 @@ body {
 
 .menu .row .menu-card .menu-card-title {
   margin-top: 1rem auto 0.5rem;
+}
+
+/* beli  */
+
+.beli .row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+  gap: 1.5rem;
+  margin-top: 4rem;
+}
+
+.beli .beli-card {
+  text-align: center;
+  border: 1px solid #aa2424;
+  padding: 2rem;
+}
+
+.beli .beli-icon {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.beli .beli-icon a {
+  width: 4rem;
+  height: 4rem;
+  color: #fff;
+  margin: 0.3rem;
+  border: 1px solid #666;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.beli .beli-icon a:hover {
+  background-color: #cccccc;
+  border: 1px solid #cccccc;
+}
+
+.beli .beli-img img {
+  height: 25rem;
+}
+
+.beli .isi-beli h3 {
+  font-size: 2.5rem;
+}
+
+.beli p {
+  text-align: center;
+  max-width: 30rem;
+  margin: auto;
+  font-weight: 100;
+  line-height: 1.6;
+}
+
+.beli .rating {
+  font-size: 1.7rem;
+  padding: 0.8rem;
+  color: #f3ef0a;
+}
+
+.beli .rating .star-full {
+  fill: #f3ef0a;
+}
+
+.beli .harga {
+  font-size: 1.3rem;
+  font-weight: bold;
 }
 
 .contact-info .wa-button {
@@ -307,6 +465,75 @@ footer .credit a {
   font-weight: 400;
 }
 
+/* modal box */
+/* item detail */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(148, 148, 148, 0.9);
+}
+
+.modal-conten {
+  position: relative;
+  background-color: rgb(255, 255, 255);
+  color: var(--utama);
+  margin: 15% auto;
+  padding: 1.5rem;
+  border: 1px solid var(--utama);
+  width: 80%;
+  animation: animateModal 0.5s ;
+}
+
+/* modal animation */
+@keyframes animateModal {
+  from {
+    top: -300px;
+    opacity: 0;
+  }
+  to {
+    top: 0;
+    opacity: 1; 
+  }
+}
+
+
+.modal-conten .close-icon {
+  position: absolute;
+  right: 1rem;
+}
+
+.modal-conten {
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.modal-conten img {
+  height: 19rem;
+  margin-right: 2rem;
+  margin-bottom: 2rem;
+}
+
+.modal-conten p {
+  font-size: 1.3rem;
+  line-height: 1.9rem;
+  margin-top: 1.5rem;
+}
+
+.modal-conten a {
+  display: flex;
+  gap: 1rem;
+  width: 12rem;
+  background-color: var(--utama);
+  color: #fff;
+  margin-top: 1rem;
+  margin-top: 1rem 1.6rem;
+}
 /* Media Queries */
 
 /* Laptop */
@@ -356,6 +583,11 @@ footer .credit a {
     transform: scaleX(0.25);
   }
 
+  .navbar .search-form {
+    width: 90%;
+    right: 2rem;
+  }
+
   .about .row {
     flex-wrap: wrap;
   }
@@ -381,6 +613,10 @@ footer .credit a {
   }
   .menu p {
     font-size: 1.2rem;
+  }
+
+  .modal-conten {
+    flex-wrap: wrap;
   }
 }
 
