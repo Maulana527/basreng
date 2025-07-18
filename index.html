@@ -18,11 +18,19 @@
     <script src="https://unpkg.com/feather-icons"></script>
     <!-- My Style  -->
     <link rel="stylesheet" href="css/sytle.css" />
+    <!-- Alpnine JS -->
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
+    ></script>
+
+    <!-- App -->
+    <script src="SRC/app.js"></script>
   </head>
   <body>
     <!-- Navbar Start -->
 
-    <nav class="navbar">
+    <nav class="navbar" x-data>
       <a href="#" class="navbar-logo">Didi<span>Food</span>.</a>
 
       <div class="navbar-nav">
@@ -35,11 +43,17 @@
 
       <div class="navbar-extra">
         <a href="#" id="search-button"><i data-feather="search"></i></a>
-        <a href="#" id="shopping-cart-button"
-          ><i data-feather="shopping-cart"></i
-        ></a>
+        <a href="#" id="shopping-cart-button">
+          <i data-feather="shopping-cart"></i>
+          <span
+            class="totaljumlah-harga"
+            x-show="$store.cart.totaljumlah"
+            x-text="$store.cart.totaljumlah"
+          ></span>
+        </a>
         <a href="#" id="hamburger-menu"><i data-feather="menu"></i></a>
       </div>
+
       <!-- navbar search form start -->
       <div class="search-form">
         <input type="search" id="search-box" placeholder="search here..." />
@@ -50,30 +64,29 @@
       <!-- shopping cart start -->
 
       <div class="shopping-cart">
-        <div class="cart-item">
-          <img src="img/contoh.jpg" alt="produk1" />
-          <div class="item-detail">
-            <h3>Product 1</h3>
-            <div class="item-harga">IDR 15K</div>
+        <template x-for="(item, index) in $store.cart.items " x-key="index">
+          <div class="cart-item">
+            <img :src="`img/${item.img}`" :alt="item.name" />
+            <div class="item-detail">
+              <h3 x-text="item-price"></h3>
+              <div class="item-harga">
+                <span x-text="rupiah(item.price)"></span> &times;
+                <button id="remove" @click="$store.cart.remove(item.id)">
+                  &minus;
+                </button>
+                <span x-text="item.totaljumlah"></span>
+                <button id="add" @click="$store.cart.add(item)">&plus;</button>
+                &equals;
+                <span x-text="rupiah(item.total)"></span>
+              </div>
+            </div>
           </div>
-          <i data-feather="trash-2" class="remove-item"></i>
-        </div>
-        <div class="cart-item">
-          <img src="img/contoh.jpg" alt="produk1" />
-          <div class="item-detail">
-            <h3>Product 1</h3>
-            <div class="item-harga">IDR 15K</div>
-          </div>
-          <i data-feather="trash-2" class="remove-item"></i>
-        </div>
-        <div class="cart-item">
-          <img src="img/contoh.jpg" alt="produk1" />
-          <div class="item-detail">
-            <h3>Product 1</h3>
-            <div class="item-harga">IDR 15K</div>
-          </div>
-          <i data-feather="trash-2" class="remove-item"></i>
-        </div>
+        </template>
+        <h4 x-show="!$store.cart.items.length" style="margin-top: 1rem;">Cart masih kosong</h4>
+        <h4 x-show="$store.cart.items.length">
+          Total : <span x-text="rupiah($store.cart.total)"></span>
+        </h4>
+        
       </div>
 
       <!-- shopping cart end -->
@@ -173,7 +186,7 @@
     <!-- Menu Section end-->
 
     <!-- beli section start -->
-    <section class="beli" id="beli">
+    <section class="beli" id="beli" x-data="beli">
       <h2><span>beli</span> basreng</h2>
       <p>
         Lorem, ipsum dolor sit amet consectetur adipisicing elit. Reiciendis,
@@ -181,50 +194,103 @@
       </p>
 
       <div class="row">
-        <div class="beli-card">
-          <div class="beli-icon">
-            <a href="#"><i data-feather="shopping-cart"></i></a>
-            <a href="#" class="item-detail-button"
-              ><i data-feather="eye"></i
-            ></a>
-          </div>
-          <div class="beli-img">
-            <img src="img/contoh.jpg" alt="beli 1" />
-          </div>
-          <div class="isi-beli">
-            <h3>basreng rasa jeruk</h3>
-            <div class="rating">
-              <i data-feather="star" class="star-full"></i>
-              <i data-feather="star" class="star-full"></i>
-              <i data-feather="star" class="star-full"></i>
-              <i data-feather="star"></i>
-              <i data-feather="star"></i>
+        <template x-for="(item, index) in items" x-key="index">
+          <div class="beli-card">
+            <div class="beli-icon">
+              <a href="#" @click.prevent="$store.cart.add(item)">
+                <svg
+                  width="24"
+                  height="24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <use href="img/feather-sprite.svg#shopping-cart" />
+                </svg>
+              </a>
+              <a href="#" class="item-detail-button">
+                <svg
+                  width="24"
+                  height="24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <use href="img/feather-sprite.svg#eye" />
+                </svg>
+              </a>
             </div>
-            <div class="harga">IDR 15K</div>
-          </div>
-        </div>
-        <div class="beli-card">
-          <div class="beli-icon">
-            <a href="#"><i data-feather="shopping-cart"></i></a>
-            <a href="#" class="item-detail-button"
-              ><i data-feather="eye"></i
-            ></a>
-          </div>
-          <div class="beli-img">
-            <img src="img/contoh.jpg" alt="beli 1" />
-          </div>
-          <div class="isi-beli">
-            <h3>basreng rasa jeruk</h3>
-            <div class="rating">
-              <i data-feather="star" class="star-full"></i>
-              <i data-feather="star" class="star-full"></i>
-              <i data-feather="star" class="star-full"></i>
-              <i data-feather="star"></i>
-              <i data-feather="star"></i>
+            <div class="beli-img">
+              <img :src="`img/beli/${item.img}`" :alt="item.name" />
             </div>
-            <div class="harga">IDR 15K</div>
+
+            <div class="isi-beli">
+              <h3 x-text="item.name"></h3>
+              <div class="rating">
+                <svg
+                  width="24"
+                  height="24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <use href="img/feather-sprite.svg#star" />
+                </svg>
+                <svg
+                  width="24"
+                  height="24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <use href="img/feather-sprite.svg#star" />
+                </svg>
+                <svg
+                  width="24"
+                  height="24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <use href="img/feather-sprite.svg#star" />
+                </svg>
+                <svg
+                  width="24"
+                  height="24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <use href="img/feather-sprite.svg#star" />
+                </svg>
+                <svg
+                  width="24"
+                  height="24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <use href="img/feather-sprite.svg#star" />
+                </svg>
+              </div>
+              <div class="harga" x-text="rupiah(item.price)"></div>
+            </div>
           </div>
-        </div>
+        </template>
       </div>
     </section>
 
