@@ -66,6 +66,18 @@ document.addEventListener("alpine:init", () => {
         this.total -= cartitem.price;
       }
     },
+    get orderMessage() {
+      return encodeURI(
+        `Halo, saya ingin memesan:\n\n` +
+          this.items
+            .map(
+              (item) =>
+                `${item.name} (${item.totaljumlah} pcs) - ${rupiah(item.total)}`
+            )
+            .join("\n") +
+          `\n\nTotal: ${rupiah(this.total)}\n\nTerima kasih!`
+      );
+    },
   });
 });
 
