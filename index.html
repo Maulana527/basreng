@@ -66,7 +66,7 @@
       <div class="shopping-cart">
         <template x-for="(item, index) in $store.cart.items " x-key="index">
           <div class="cart-item">
-            <img :src="`img/${item.img}`" :alt="item.name" />
+            <img :src="`img/beli/${item.img}`" :alt="item.name" />
             <div class="item-detail">
               <h3 x-text="item-price"></h3>
               <div class="item-harga">
@@ -220,7 +220,7 @@
                   stroke-linecap="round"
                   stroke-linejoin="round"
                 >
-                  <use href="img/feather-sprite.svg#eye" />
+                  <use href="/img/feather-sprite.svg#eye" />
                 </svg>
               </a>
             </div>
