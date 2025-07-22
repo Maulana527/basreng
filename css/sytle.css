@@ -28,8 +28,8 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 1.4rem 7%;
-  background-color: rgba(1, 1, 1, 0.8);
-  border-bottom: 1px solid var(--utama); /*untuk ganti warna bagian atas */
+  background-color: rgba(255, 255, 255, 0.05); /* Ganti dari sebelumnya */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Tambahkan garis transparan */
   position: fixed;
   top: 0;
   left: 0;
@@ -40,16 +40,16 @@ body {
 .navbar .navbar-logo {
   font-size: 1.8rem;
   font-weight: 700;
-  color: #fff;
+  color: #eeeeee;
   font-style: italic;
 }
 
 .navbar .navbar-logo span {
-  color: var(--utama);
+  color: #000;
 }
 
 .navbar .navbar-nav a {
-  color: #fff;
+  color: #fefefe;
   display: inline-block;
   font-size: 1.3rem;
   margin: 0 0.8rem;
@@ -190,6 +190,8 @@ body {
 .shopping-cart img {
   height: 4rem;
   border-radius: 50%;
+  width: 4rem;
+  object-fit: cover;
 }
 
 /* Hero Section */

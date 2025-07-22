@@ -6,6 +6,7 @@ document.addEventListener("alpine:init", () => {
       { id: 3, name: "rasa BBQ", img: "3.jpg", price: 15000 },
       { id: 4, name: "rasa Pedas", img: "4.jpg", price: 15000 },
       { id: 5, name: "rasa Asin", img: "5.jpg", price: 15000 },
+      { id: 6, name: "rasa Jagung Bakar", img: "6.jpg", price: 15000 },
     ],
   }));
 

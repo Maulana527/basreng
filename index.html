@@ -42,7 +42,6 @@
       </div>
 
       <div class="navbar-extra">
-        <a href="#" id="search-button"><i data-feather="search"></i></a>
         <a href="#" id="shopping-cart-button">
           <i data-feather="shopping-cart"></i>
           <span
@@ -55,10 +54,7 @@
       </div>
 
       <!-- navbar search form start -->
-      <div class="search-form">
-        <input type="search" id="search-box" placeholder="search here..." />
-        <label for="search-box"><i data-feather="search"></i></label>
-      </div>
+
       <!-- navbar search form end -->
 
       <!-- shopping cart start -->
@@ -82,15 +78,20 @@
             </div>
           </div>
         </template>
-        <h4 x-show="!$store.cart.items.length" style="margin-top: 1rem;">Cart masih kosong</h4>
+        <h4 x-show="!$store.cart.items.length" style="margin-top: 1rem">
+          Cart masih kosong
+        </h4>
         <h4 x-show="$store.cart.items.length">
           Total : <span x-text="rupiah($store.cart.total)"></span>
         </h4>
 
         <div x-show="$store.cart.items.length">
-          <div class="contact-info" style="display: flex; justify-content: center; margin-top: 1rem;">
+          <div
+            class="contact-info"
+            style="display: flex; justify-content: center; margin-top: 1rem"
+          >
             <a
-              :href="`https://wa.me/6281313265712?text=${$store.cart.orderMessage}`"
+              :href="`https://wa.me/6285315188864?text=${$store.cart.orderMessage}`"
               target="_blank"
               class="wa-button"
             >
@@ -108,14 +109,17 @@
 
     <!-- Hero Section Start -->
 
-    <section class="hero" id="home">
+    <section class="hero" id="home" x-data>
       <main class="content">
         <h1><span>Basreng</span>Yang Kita Buat Pasti Enak</h1>
         <p>
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Provident,
           repellendus.
         </p>
-        <a href="#" class="cta">Beli Sekarang</a>
+
+        <a :href="`https://wa.me/6285315188864`" target="_blank" class="cta"
+          >Beli Sekarang</a
+        >
       </main>
     </section>
 
@@ -169,7 +173,7 @@
       <div class="row">
         <div class="menu-card">
           <img src="img/contoh.jpg" alt="contoh " class="menu-card-img" />
-          <h3 class="menu-card-title">-rasa jeruk-</h3>
+          <h3 class="menu-card-title">-rasa Keju-</h3>
           <p class="menu-card-price">Harga 15.000 3KG</p>
         </div>
         <div class="menu-card">
@@ -179,17 +183,22 @@
         </div>
         <div class="menu-card">
           <img src="img/contoh.jpg" alt="contoh " class="menu-card-img" />
-          <h3 class="menu-card-title">-rasa jeruk-</h3>
+          <h3 class="menu-card-title">-rasa BBQ-</h3>
           <p class="menu-card-price">Harga 15.000 3KG</p>
         </div>
         <div class="menu-card">
           <img src="img/contoh.jpg" alt="contoh " class="menu-card-img" />
-          <h3 class="menu-card-title">-rasa jeruk-</h3>
+          <h3 class="menu-card-title">-rasa Pedas-</h3>
           <p class="menu-card-price">Harga 15.000 3KG</p>
         </div>
         <div class="menu-card">
           <img src="img/contoh.jpg" alt="contoh " class="menu-card-img" />
-          <h3 class="menu-card-title">-rasa jeruk-</h3>
+          <h3 class="menu-card-title">-rasa Asin-</h3>
+          <p class="menu-card-price">Harga 15.000 3KG</p>
+        </div>
+        <div class="menu-card">
+          <img src="img/contoh.jpg" alt="contoh " class="menu-card-img" />
+          <h3 class="menu-card-title">-rasa Jagung Bakar-</h3>
           <p class="menu-card-price">Harga 15.000 3KG</p>
         </div>
       </div>
@@ -319,12 +328,12 @@
       <div class="row">
         <div class="contact-info">
           <a
-            href="https://wa.me/6281313265712"
+            href="https://wa.me/6285315188864"
             target="_blank"
             class="wa-button"
           >
             <i data-feather="message-circle"></i>
-            WhatsApp: +62 813-1326-5712
+            WhatsApp: +62 8531-5188-864
           </a>
         </div>
       </div>
@@ -335,12 +344,6 @@
     <!-- Footer start -->
 
     <footer>
-      <div class="socials">
-        <a href="#"><i data-feather="instagram"></i></a>
-        <a href="#"><i data-feather="twitter"></i></a>
-        <a href="#"><i data-feather="facebook"></i></a>
-      </div>
-
       <div class="links">
         <a href="#home">Home</a>
         <a href="#about">Tentang Kami</a>
