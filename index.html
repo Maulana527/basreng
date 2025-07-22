@@ -68,7 +68,7 @@
           <div class="cart-item">
             <img :src="`img/beli/${item.img}`" :alt="item.name" />
             <div class="item-detail">
-              <h3 x-text="item-price"></h3>
+              <h3 x-text="item.name"></h3>
               <div class="item-harga">
                 <span x-text="rupiah(item.price)"></span> &times;
                 <button id="remove" @click="$store.cart.remove(item.id)">
@@ -86,7 +86,19 @@
         <h4 x-show="$store.cart.items.length">
           Total : <span x-text="rupiah($store.cart.total)"></span>
         </h4>
-        
+
+        <div x-show="$store.cart.items.length">
+          <div class="contact-info" style="display: flex; justify-content: center; margin-top: 1rem;">
+            <a
+              :href="`https://wa.me/6281313265712?text=${$store.cart.orderMessage}`"
+              target="_blank"
+              class="wa-button"
+            >
+              <i data-feather="message-circle"></i>
+              Pesan Sekarang
+            </a>
+          </div>
+        </div>
       </div>
 
       <!-- shopping cart end -->
@@ -307,12 +319,12 @@
       <div class="row">
         <div class="contact-info">
           <a
-            href="https://wa.me/6281234567890"
+            href="https://wa.me/6281313265712"
             target="_blank"
             class="wa-button"
           >
             <i data-feather="message-circle"></i>
-            WhatsApp: +62 812-3456-7890
+            WhatsApp: +62 813-1326-5712
           </a>
         </div>
       </div>
