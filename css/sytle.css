@@ -45,7 +45,7 @@ body {
 }
 
 .navbar .navbar-logo span {
-  color: #000;
+  color: #943434;
 }
 
 .navbar .navbar-nav a {
@@ -118,6 +118,8 @@ body {
   margin-right: 1.5rem;
   color: var(--bg);
 }
+
+
 
 /* shoppiing cart */
 
@@ -295,6 +297,8 @@ body {
 
 .about .row .about-img img {
   width: 100%;
+  border-radius: 5%;
+  object-fit: cover;
 }
 
 .about .row .content {
@@ -361,7 +365,7 @@ body {
 
 .beli .beli-card {
   text-align: center;
-  border: 1px solid #aa2424;
+  border: 1px solid var(--utama);
   padding: 2rem;
 }
 
@@ -423,7 +427,7 @@ body {
   width: 100%;
   height: 200px; /* Atur tinggi sesuai kebutuhan */
   object-fit: cover; /* Biar gambar tidak gepeng dan tetap proporsional */
-  border-radius: 10px; /* Opsional, biar sudutnya membulat */
+  border-radius: 15px; /* Opsional, biar sudutnya membulat */
   display: block;
 }
 

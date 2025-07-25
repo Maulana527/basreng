@@ -106,6 +106,7 @@
     </nav>
 
     <!-- Navbar End -->
+    
 
     <!-- Hero Section Start -->
 
@@ -250,8 +251,24 @@
             </div>
 
             <div class="isi-beli">
-              <h3 x-text="item.name"></h3>
-              <div class="rating">
+              <h3 x-text="item.name" class="text-lg font-semibold mb-1"></h3>
+              
+              <div class="rating flex items-center justify-center gap-1 text-yellow-400 text-xl mb-2">
+                <template x-for="i in item.rating">
+                <svg
+                  width="24"
+                  height="24"
+                  fill="currentColor"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <use href="img/feather-sprite.svg#star" />
+                </svg>
+                </template>
+
+                <template x-for="i in (5 - item.rating)">
                 <svg
                   width="24"
                   height="24"
@@ -263,50 +280,8 @@
                 >
                   <use href="img/feather-sprite.svg#star" />
                 </svg>
-                <svg
-                  width="24"
-                  height="24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                >
-                  <use href="img/feather-sprite.svg#star" />
-                </svg>
-                <svg
-                  width="24"
-                  height="24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                >
-                  <use href="img/feather-sprite.svg#star" />
-                </svg>
-                <svg
-                  width="24"
-                  height="24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                >
-                  <use href="img/feather-sprite.svg#star" />
-                </svg>
-                <svg
-                  width="24"
-                  height="24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                >
-                  <use href="img/feather-sprite.svg#star" />
-                </svg>
+                </template>
+                
               </div>
               <div class="harga" x-text="rupiah(item.price)"></div>
             </div>

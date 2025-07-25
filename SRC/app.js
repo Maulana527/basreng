@@ -1,12 +1,12 @@
 document.addEventListener("alpine:init", () => {
   Alpine.data("beli", () => ({
     items: [
-      { id: 1, name: "rasa keju", img: "1.jpg", price: 15000 },
-      { id: 2, name: "rasa jeruk", img: "2.jpg", price: 15000 },
-      { id: 3, name: "rasa BBQ", img: "3.jpg", price: 15000 },
-      { id: 4, name: "rasa Pedas", img: "4.jpg", price: 15000 },
-      { id: 5, name: "rasa Asin", img: "5.jpg", price: 15000 },
-      { id: 6, name: "rasa Jagung Bakar", img: "6.jpg", price: 15000 },
+      { id: 1, name: " Keju", img: "1.jpg", price: 15000,rating: 4 },
+      { id: 2, name: " Jeruk", img: "2.jpg", price: 15000,rating: 5 },
+      { id: 3, name: " BBQ", img: "3.jpg", price: 15000, rating: 4 },
+      { id: 4, name: " Pedas", img: "4.jpg", price: 15000, rating: 5},
+      { id: 5, name: " Asin", img: "5.jpg", price: 15000, rating: 4 },
+      { id: 6, name: " Jagung Bakar", img: "6.jpg", price: 15000, rating: 3},
     ],
   }));
 
