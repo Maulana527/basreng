@@ -45,7 +45,7 @@ body {
 }
 
 .navbar .navbar-logo span {
-  color: #943434;
+  color: #00FF00;
 }
 
 .navbar .navbar-nav a {
@@ -221,7 +221,7 @@ body {
   background: linear-gradient(
     0deg,
     rgba(28, 28, 28, 1) 20%,
-    rgba(61, 61, 61, 0) 90%
+    rgba(61, 61, 61, 0) 60%
   );
 }
 
@@ -238,26 +238,27 @@ body {
 }
 
 .hero .content h1 span {
-  color: var(--utama);
+  color: #00FF00;
 }
 
-.hero .content p {
+/*.hero .content p {
   font-size: 1.6rem;
   margin-top: 1rem;
   line-height: 1.4;
   font-weight: 100;
   text-shadow: 1px 1px 3px rgba(1, 1, 3, 0.5);
   line-height: 1.2;
-  mix-blend-mode: difference;
-}
+  mix-blend-mode: difference;;
+
+}*/
 
 .hero .content .cta {
   margin-top: 1rem;
   display: inline-block;
   padding: 1rem 3rem;
   font-size: 1.4rem;
-  color: #fff;
-  background-color: var(--utama);
+  color: var(--bg);
+  background-color: #cccccc;
   border-radius: 0.5rem;
   box-shadow: 1px 1px 3px rgba(1, 1, 3, 0.5);
 }
@@ -284,7 +285,7 @@ body {
 .menu h2 span,
 .beli h2 span,
 .contact h2 span {
-  color: #535353;
+  color: #00FF00;
 }
 
 .about .row {
@@ -316,6 +317,8 @@ body {
   font-size: 1.2rem;
   font-weight: 300;
   line-height: 1.2;
+  
+  
 }
 
 /* Menu section */
