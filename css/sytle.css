@@ -201,7 +201,7 @@ body {
   min-height: 100vh;
   display: flex;
   align-items: center;
-  background-image: url("../img/header-bg.jpeg");
+  background-image: url("../img/Header.jpeg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -298,6 +298,8 @@ body {
 
 .about .row .about-img img {
   width: 100%;
+  max-width: 75%;
+  max-height: 70%;
   border-radius: 5%;
   object-fit: cover;
 }
@@ -345,12 +347,17 @@ body {
 
 .menu .row .menu-card {
   text-align: center;
-  padding-bottom: 3rem;
+  padding: 1rem;
 }
 
 .menu .row .menu-card img {
-  border-radius: 50%;
-  width: 80%;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;         /* bikin bulat */
+  object-fit: cover;          /* isi tetap proporsional */
+  display: block;
+  margin: 0 auto;             /* tengahin */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* tambahan efek bayangan */
 }
 
 .menu .row .menu-card .menu-card-title {
@@ -583,7 +590,7 @@ footer .credit a {
 /* Tablet */
 @media (max-width: 768px) {
   html {
-    font-size: 62.5%;
+    font-size: 65.5%;
   }
 
   #hamburger-menu {
@@ -630,9 +637,10 @@ footer .credit a {
   }
 
   .about .row .about-img img {
-    height: 24rem;
-    object-fit: cover;
-    object-position: center;
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+    border-radius: 5%;
   }
 
   .about .row .content {
