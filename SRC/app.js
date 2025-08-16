@@ -80,6 +80,20 @@ document.addEventListener("alpine:init", () => {
       );
     },
   });
+
+  Alpine.store("modal", {
+    isOpen: false,
+    item: null,
+    open(item) {
+      console.log("modal open?");
+      this.item = item;
+      this.isOpen = true;
+    },
+    close() {
+      this.isOpen = false;
+      this.item = null;
+    },
+  });
 });
 
 //konversi ke rupiah

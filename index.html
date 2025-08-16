@@ -233,7 +233,7 @@
                   <use href="img/feather-sprite.svg#shopping-cart" />
                 </svg>
               </a>
-              <a href="#" class="item-detail-button">
+              <a href="#" class="item-detail-button" @click.prevent="$store.modal.open(item)">
                 <svg
                   width="24"
                   height="24"
@@ -336,7 +336,7 @@
 
     <!-- modal box item detail mulai -->
 
-    <div class="modal" id="item-detail-modal">
+    <div class="modal" id="item-detail-modal" x-data x-cloak x-show="$store.modal.isOpen">
       <div class="modal-conten">
         <a href="#" class="close-icon"><i data-feather="x"></i></a>
         <div class="modal-isi">
