@@ -85,9 +85,12 @@ document.addEventListener("alpine:init", () => {
     isOpen: false,
     item: null,
     open(item) {
-      console.log("modal open?");
       this.item = item;
       this.isOpen = true;
+      // ensure feather icons inside modal are rendered after DOM update
+      Alpine.nextTick(() => {
+        if (window.feather) feather.replace();
+      });
     },
     close() {
       this.isOpen = false;

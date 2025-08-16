@@ -336,29 +336,37 @@
 
     <!-- modal box item detail mulai -->
 
-    <div class="modal" id="item-detail-modal" x-data x-cloak x-show="$store.modal.isOpen">
-      <div class="modal-conten">
-        <a href="#" class="close-icon"><i data-feather="x"></i></a>
-        <div class="modal-isi">
-          <img src="img/contoh.jpg" alt="contoh" />
+    <div class="modal" id="item-detail-modal" x-cloak x-show="$store.modal.isOpen" x-data>
+      <div class="modal-conten" @click.away="$store.modal.close()">
+        <a href="#" class="close-icon" @click.prevent="$store.modal.close()"><i data-feather="x"></i></a>
+
+        <!-- only render modal body when an item is set -->
+        <div class="modal-isi" x-show="$store.modal.item" x-cloak>
+          <img :src="`img/beli/${$store.modal.item?.img}`" :alt="$store.modal.item?.name" />
+
           <div class="product-conten">
-            <h3>rasa 1</h3>
-            <p>
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-              Nesciunt, delectus!
-            </p>
+            <h3 x-text="$store.modal.item?.name"></h3>
+
+            <p x-text="$store.modal.item?.description ?? 'Tidak ada deskripsi.'"></p>
+
             <div class="rating">
-              <i data-feather="star" class="star-full"></i>
-              <i data-feather="star" class="star-full"></i>
-              <i data-feather="star" class="star-full"></i>
-              <i data-feather="star"></i>
-              <i data-feather="star"></i>
+              <template x-if="$store.modal.item">
+                <template x-for="i in $store.modal.item.rating" :key="`full-`+i">
+                  <i data-feather="star" class="star-full"></i>
+                </template>
+
+                <template x-for="i in (5 - $store.modal.item.rating)" :key="`empty-`+i">
+                  <i data-feather="star"></i>
+                </template>
+              </template>
             </div>
-            <div class="harga">IDR 15K</div>
-            <a href="#"
-              ><i data-feather="shopping-cart"></i
-              ><span>masukin ke keranjang</span></a
-            >
+
+            <div class="harga" x-text="rupiah($store.modal.item?.price ?? 0)"></div>
+
+            <a href="#" @click.prevent="$store.cart.add($store.modal.item); $store.modal.close()">
+              <i data-feather="shopping-cart"></i>
+              <span>masukin ke keranjang</span>
+            </a>
           </div>
         </div>
       </div>
