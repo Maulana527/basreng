@@ -525,6 +525,7 @@ footer .credit a {
   height: 100%;
   overflow: auto;
   background-color: rgba(148, 148, 148, 0.9);
+  overflow: hidden;
 }
 
 .modal-conten {
@@ -536,6 +537,9 @@ footer .credit a {
   border: 1px solid var(--utama);
   width: 80%;
   animation: animateModal 0.5s;
+  max-height: 80vh;      /* batasi tinggi modal */
+  overflow-y: auto;      /* scroll di dalam modal jika konten kepanjangan */
+  width: 80%;
 }
 
 /* modal animation */
@@ -553,17 +557,34 @@ footer .credit a {
 .modal-conten .close-icon {
   position: absolute;
   right: 1rem;
+  top: 1rem;
+  width: auto;           /* biar selebar ikon saja */
+  height: auto;
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.3rem;
+  border-radius: 4px;
+  cursor: pointer;
+  color : var(--utama);
+}
+
+.modal-conten .close-icon:hover {
+  background: #2e2e2e;   /* warna latar berubah */
+  color: #fff;           /* warna ikon berubah */
+  transition: background 0.2s, color 0.2s;
 }
 
 .modal-conten {
-  display: flex;
-  flex-wrap: nowrap;
+  max-height: 80vh;      /* batasi tinggi modal */
+  overflow-y: auto;      /* scroll di dalam modal jika konten kepanjangan */
+  width: 80%;
 }
 
 .modal-conten img {
-  height: 19rem;
-  margin-right: 2rem;
-  margin-bottom: 2rem;
+  max-width: 250px; /* biar fotonya gak terlalu gede */
+  border-radius: 10px;
 }
 
 .modal-conten p {
@@ -580,6 +601,18 @@ footer .credit a {
   color: #fff;
   margin-top: 1rem;
   margin-top: 1rem 1.6rem;
+}
+
+.modal-isi {
+    display: flex;
+  align-items: flex-start;
+  gap: 2rem;
+}
+
+.rating {
+  font-size: 2.2rem; /* gedein bintang */
+  color: gold; /* kasih warna emas biar lebih menarik */
+  margin: 0.5rem 0;
 }
 /* Media Queries */
 
@@ -665,6 +698,23 @@ footer .credit a {
 
   .modal-conten {
     flex-wrap: wrap;
+  }
+
+  .modal-isi {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .modal-conten {
+    width: 95%;
+    padding: 1rem;
+    max-height: 90vh;
+  }
+
+  .modal-conten img {
+    max-width: 25rem;
+    height: auto;
   }
 }
 

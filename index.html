@@ -349,17 +349,11 @@
 
             <p x-text="$store.modal.item?.description ?? 'Tidak ada deskripsi.'"></p>
 
-            <div class="rating">
-              <template x-if="$store.modal.item">
-                <template x-for="i in $store.modal.item.rating" :key="`full-`+i">
-                  <i data-feather="star" class="star-full"></i>
-                </template>
-
-                <template x-for="i in (5 - $store.modal.item.rating)" :key="`empty-`+i">
-                  <i data-feather="star"></i>
-                </template>
-              </template>
-            </div>
+            <div class="rating ">
+        <template x-for="n in 5">
+          <span x-text="n <= $store.modal.item.rating ? '★' : '☆'"></span>
+        </template>
+      </div>
 
             <div class="harga" x-text="rupiah($store.modal.item?.price ?? 0)"></div>
 

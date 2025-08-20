@@ -1,12 +1,12 @@
 document.addEventListener("alpine:init", () => {
   Alpine.data("beli", () => ({
     items: [
-      { id: 1, name: " Keju", img: "Keju.jpeg", price: 20000,rating: 4 },
-      { id: 2, name: " Jeruk", img: "Jeruk.jpeg", price: 20000,rating: 5 },
-      { id: 3, name: " BBQ", img: "BBQ.jpeg", price: 20000, rating: 4 },
-      { id: 4, name: " Pedas", img: "Pedas.jpeg", price: 20000, rating: 5},
-      { id: 5, name: " Asin", img: "Asin.jpeg", price: 20000, rating: 4 },
-      { id: 6, name: " Jagung Bakar", img: "JagungBakar.jpeg", price: 20000, rating: 3},
+      { id: 1, name: " Keju", img: "Keju.jpeg", price: 20000,rating: 4, description: "Basreng rasa keju gurih dan renyah." },
+      { id: 2, name: " Jeruk", img: "Jeruk.jpeg", price: 20000,rating: 5, description: "Basreng rasa jeruk unik dan segar." },
+      { id: 3, name: " BBQ", img: "BBQ.jpeg", price: 20000, rating: 4, description: "Basreng rasa BBQ smokey ala western." },
+      { id: 4, name: " Pedas", img: "Pedas.jpeg", price: 20000, rating: 5, description: "Basreng rasa pedas menggigit." },
+      { id: 5, name: " Asin", img: "Asin.jpeg", price: 20000, rating: 4, description: "Basreng rasa asin gurih dan lezat." },
+      { id: 6, name: " Jagung Bakar", img: "JagungBakar.jpeg", price: 20000, rating: 3, description: "Basreng rasa jagung bakar manis dan gurih." },
     ],
   }));
 
