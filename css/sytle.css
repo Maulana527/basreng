@@ -510,10 +510,13 @@ footer .credit a {
   font-weight: 400;
 }
 
+[x-cloak] {
+  display: none !important;
+}
+
 /* modal box */
 /* item detail */
 .modal {
-  display: none;
   position: fixed;
   z-index: 9999;
   left: 0;

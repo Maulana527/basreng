@@ -80,6 +80,23 @@ document.addEventListener("alpine:init", () => {
       );
     },
   });
+
+  Alpine.store("modal", {
+    isOpen: false,
+    item: null,
+    open(item) {
+      this.item = item;
+      this.isOpen = true;
+      // ensure feather icons inside modal are rendered after DOM update
+      Alpine.nextTick(() => {
+        if (window.feather) feather.replace();
+      });
+    },
+    close() {
+      this.isOpen = false;
+      this.item = null;
+    },
+  });
 });
 
 //konversi ke rupiah
